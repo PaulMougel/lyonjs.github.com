@@ -1,0 +1,82 @@
+<!--<div ng-controller="navbar" class="navbar navbar-static-top navbar-inverse">
+  <div class="navbar-inner">
+    <a class="brand" href="#">FranceJS</a>
+    <ul class="nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+    </ul>
+
+    <ul class="nav secondary-nav pull-right">
+      <li ng-show="user == ''">
+        <button class="btn" ng-click="login()">
+          Sign In With Twitter
+        </button>
+      </li>
+      <li ng-show="user != ''">
+        <a href="">
+          <img ng-src="{{user.profile_image_url}}" width="20"/>
+          @{{user.screen_name}}
+        </a>
+      </li>-->
+<!--<li class="dropdown" data-dropdown="dropdown">
+  <a class="dropdown-toggle" href="#"><span class="member">
+<i class="icon-check"
+                                                                                                style="color: green"></i> Matthieu Lux</span></a>
+  <ul class="dropdown-menu">
+    <li><a href="/dashboard">Mon dashboard</a></li>
+    <li><a href="/profile/Swiip">Voir mon profil</a></li>
+    <li><a href="/profile/edit">Editer mon profil</a></li>
+    <li><a href="/dashboard/trombinoscope">Mon trombinoscope</a></li>
+    <li><a href="/dashboard/settings">Mes préférences</a></li>
+    <li class="divider"></li>
+    <li><a href="/logout">Se déconnecter</a></li>
+  </ul>
+</li>-->
+<!--</ul>
+</div>
+
+
+</div>  -->
+
+<header class="white band padded" ng-controller="navbar">
+  <div class="container">
+    <div class="row">
+      <div class="one half">
+        <!--<h1 data-compression="9" data-min="20" data-max="120" style="font-size: 66px; text-indent: 0px;"
+            class="big responsive heading"><a href="./home"><span class="logo"></span>GroundworkCSS<sup>Beta</sup></a>
+        </h1>-->
+        <!--<h1 data-compression="9" data-min="20" data-max="120" style="font-size: 66px; text-indent: 0px;" class="big responsive heading">
+          LyonJS
+        </h1>-->
+        <span class="logo"></span>
+      </div>
+      <div class="one half double pad-top">
+        <nav data-label="Menu" class="inline nav menu pull-right">
+          <a href="#" class="menu-toggle"><i class="icon-reorder"></i></a>
+          <ul>
+            <li>
+              <a href="#/">
+                <i class="icon-home"></i><span class="small-tablet-only mobile-only">Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="#/events">
+                <i class="icon-calendar"></i> Events
+              </a>
+            </li>
+            <li >
+              <a ng-show="!user.screen_name" ng-click="login()">
+                <i class="icon-twitter"></i> Sign In
+              </a>
+              <a ng-show="user.screen_name" href="">
+                <img ng-src="{{user.profile_image_url}}" width="20"/>
+                @{{user.screen_name}}
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
