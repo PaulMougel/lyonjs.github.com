@@ -8,7 +8,7 @@ cors = require './cors'
 oauth = require './oauth'
 
 # SourceMap
-do sourceMap.install
+# do sourceMap.install
 
 # Mongoose connect
 mongoose.set 'debug', true

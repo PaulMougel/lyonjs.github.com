@@ -30,15 +30,16 @@ module.exports.express = (server) ->
       req.session.oauth.verifier = req.query.oauth_verifier
       twitterOauth = req.session.oauth;
 
-      twitter.getOAuthAccessToken twitterOauth.token, twitterOauth.token_secret, twitterOauth.verifier, (error, oauth_access_token, oauth_access_token_secret, results) ->
+      twitter.getOAuthAccessToken twitterOauth.token, twitterOauth.token_secret, twitterOauth.verifier, (error, oauth_access_token, oauth_access_token_secret, result) ->
         console.log arguments
         if error?
           console.log error
           res.send "yeah something broke."
         else
+          req.session.twitter = result.screen_name
           req.session.oauth.access_token = oauth_access_token
           req.session.oauth.access_token_secret = oauth_access_token_secret
-          console.log 'Auth Twitter success ', results
+          console.log 'Auth Twitter success ', result
           res.redirect 'http://localhost:9000/'
     else
       next new Error "you're not supposed to be here."

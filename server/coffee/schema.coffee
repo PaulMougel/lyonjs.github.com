@@ -13,6 +13,7 @@ mongoose.model 'Content', ContentSchema
 
 UserSchema = new Schema
   twitter: String
+  twitterData: Object
   admin: Boolean
   github: String
 

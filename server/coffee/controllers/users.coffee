@@ -7,22 +7,29 @@ module.exports = (server) ->
   User = mongoose.model 'User'
 
   server.get '/api/user', (req, res) ->
-    oauth.twitter.get 'https://api.twitter.com/1.1/account/verify_credentials.json', req, (error, data, response) ->
-      if error?
-        console.log 'Twitter response error', error
-        res.send null
+    console.log 'GET user', req.session
+    User.findOne(twitter: req.session.twitter).exec (err, user) ->
+      console.log 'GET user', user
+      if user?.twitterData?
+        console.log 'GET user return twitter data from Mongo'
+        res.send user.twitterData
       else
-        data = JSON.parse data
-        query = User.find
-          twitter: data.screen_name
-        query.exec (error, results) ->
-          if results.length == 0
-            user = new User
-              twitter: data.screen_name
+        console.log 'GET user verify twitter account'
+        oauth.twitter.get 'https://api.twitter.com/1.1/account/verify_credentials.json', req, (error, data, response) ->
+          if error?
+            console.log 'GET user verify twitter failed :', error
+            res.send null
+          else
+            data = JSON.parse data
+            if user?
+              console.log 'GET user enhanced user with twitter data'
+              user.twitterData = data
+            else
+              console.log 'GET user create user with twitter data'
+              user = new User
+                twitter: data.screen_name
             do user.save
-        req.session.oauth.token_verify_date = new Date
-        console.log 'Twitter response screen name', data.screen_name
-        res.send data
+            res.send data
 
   rest server, '/user', User
 
