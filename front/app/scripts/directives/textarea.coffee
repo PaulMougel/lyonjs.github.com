@@ -28,8 +28,3 @@ lyonjs.directive 'eipTextarea', ($timeout, $parse) ->
         console.log 'invoker', $attributes.focusout
         invoker = $parse $attributes.focusout
         invoker $scope.$parent
-
-
-
-
-

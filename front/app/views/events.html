@@ -1,0 +1,20 @@
+<script type="text/ng-template" id="event.html">
+  <h2><a href="#/event/{{event.id}}">{{event.title}}</a></h2>
+
+  <h3>{{event.date | date:'dd MMMM yyyy'}}</h3>
+</script>
+
+<div class="hero band js-yellow padded" ng-init="event = (events | nextEvent)">
+  <div class="container one centered mobile third" ng-include="'event.html'"></div>
+</div>
+
+<div class="container">
+  <section class="row">
+    <div class="one half">
+      <div ng-repeat="event in events | previousEvents" ng-include="'event.html'"></div>
+    </div>
+    <div class="one half">
+      <div ng-repeat="event in events | commingEvents" ng-include="'event.html'"></div>
+    </div>
+  </section>
+</div>

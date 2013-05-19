@@ -10,7 +10,7 @@ lyonjs.config ($routeProvider) ->
   $routeProvider.when '/events',
     templateUrl: 'views/events.html'
     controller: 'EventsCtrl'
-  $routeProvider.when '/events/:id',
+  $routeProvider.when '/event/:id',
     templateUrl: 'views/event.html'
     controller: 'EventCtrl'
   $routeProvider.otherwise
