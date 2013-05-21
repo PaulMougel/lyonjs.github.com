@@ -19,7 +19,7 @@ lyonjs.config ($routeProvider) ->
 lyonjs.value 'ServerURL', 'http://localhost\\:1234/api'
 
 lyonjs.factory 'User', ($resource, ServerURL) ->
-  $resource "#{ServerURL}/user", {},
+  $resource "#{ServerURL}/user/:twitter", {},
     query:
       method: 'GET'
 

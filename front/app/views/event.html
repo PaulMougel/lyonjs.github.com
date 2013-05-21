@@ -1,0 +1,25 @@
+<div class="hero band js-yellow padded">
+  <div class="container one centered mobile third">
+    {{event.title}}
+  </div>
+</div>
+
+<div class="hero band padded">
+  <div class="container">
+    <button class="pull-right" ng-click="add()">Add</button>
+    <h2>Talks</h2>
+    <div ng-repeat="talk in event.talks">
+      <eip-twitter ng-model="talk.twitter">
+        <img ng-src="{{twitter.profile_image_url}}"/>
+        {{twitter.screen_name || 'Enter a Twitter screen name'}}
+      </eip-twitter>
+    </div>
+  </div>
+</div>
+
+<div class="hero band padded">
+  <div class="container">
+    <h2>Venue</h2>
+  </div>
+</div>
+

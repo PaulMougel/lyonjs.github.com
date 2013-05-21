@@ -31,5 +31,10 @@ module.exports = (server) ->
             do user.save
             res.send data
 
+  server.get '/api/user/:screen_name', (req, res) ->
+    console.log 'GET user ', req.params.screen_name
+    oauth.twitter.get "https://api.twitter.com/1.1/users/show.json?screen_name=#{req.params.screen_name}", req, (error, data, response) ->
+      res.send data
+
   rest server, '/user', User
 

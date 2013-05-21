@@ -15,6 +15,10 @@ lyonjs.service 'Event', ->
       date: new Date 2013, 5, 4
       title: 'Windows 8'
     ]
+  get: ->
+    id: 3
+    date: new Date 2013, 5, 4
+    title: 'Windows 8'
 
 lyonjs.controller 'EventsCtrl', ($scope, Event) ->
   $scope.events = do Event.query
